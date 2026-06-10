@@ -21,6 +21,7 @@ from src.utils import formatear_reporte_valor
 from src.utils import mostrar_resultado
 from src.utils import generar_ficha_contribuyente
 
+from src.utils import procesar_nit
 
 
 from src.utils import esta_al_dia
@@ -87,7 +88,8 @@ def menu_funciones_basicas():
     linea = formatear_reporte_valor("900123456", "Empresa ABC S.A.S.", 1_500_000, "ACTIVO")
     print(f" Reporte: {linea}")
 
-    # TODO: descomenta cuando hayas completado generar_ficha_contribuyente
+    # TODO: (OK)
+    # descomenta cuando hayas completado generar_ficha_contribuyente
     # ficha = generar_ficha_contribuyente(
     #     "900123456", "Empresa ABC S.A.S.", "Bogota", "202401", 1_500_000, "ACTIVO"
     # )
@@ -103,11 +105,17 @@ def menu_encadenamiento():
     """Sección 2: encadenamiento de funciones."""
     print("\n--- Encadenamiento de funciones ---")
 
-    # TODO: descomenta cuando hayas completado limpiar_nit y validar_nit
+    # TODO: (OK)
+    # descomenta cuando hayas completado limpiar_nit y validar_nit
     # casos = ["900-123-456", "800.234.567", "ABC123", "123", "8001234560"]
     # for nit in casos:
     #     resultado = procesar_nit(nit)
     #     print(f"  {resultado}")
+
+    casos = ["900-123-456", "800.234.567", "ABC123", "123", "8001234560"]
+    for nit in casos:
+         resultado = procesar_nit(nit)
+         print(f"  {resultado}")
 
     # TODO: descomenta cuando hayas completado pipeline_nit
     # print()
