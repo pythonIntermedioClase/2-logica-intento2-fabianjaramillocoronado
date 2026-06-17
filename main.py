@@ -22,6 +22,7 @@ from src.utils import mostrar_resultado
 from src.utils import generar_ficha_contribuyente
 
 from src.utils import procesar_nit
+from src.utils import pipeline_nit
 
 
 from src.utils import esta_al_dia
@@ -122,7 +123,11 @@ def menu_encadenamiento():
     # for nit in casos:
     #     informe = pipeline_nit(nit)
     #     print(f"  {informe}")
-    pass
+    print()
+    for nit in casos:
+        informe = pipeline_nit(nit)
+        print(f" {informe}")
+    #pass
 
 
 def menu_condicionales_simples():
@@ -136,6 +141,12 @@ def menu_condicionales_simples():
     #     estado = "Al día" if al_dia else "En mora"
     #     print(f"  {dias} días de mora → {estado}")
 
+    casos_mora = [0, 1, 30, 90]
+    for dias in casos_mora:
+        al_dia = esta_al_dia(dias)
+        estado = "Al día" if al_dia else "En mora"
+        print(f"  {dias} días de mora → {estado}")
+
     # TODO: descomenta cuando hayas completado aplicar_descuento
     # valor_base = 1_000_000
     # con_descuento = aplicar_descuento(valor_base, True)
@@ -148,7 +159,7 @@ def menu_condicionales_simples():
     # for valor, historial in casos:
     #     prioridad = asignar_prioridad(valor, historial)
     #     print(f"  ${valor:,} / historial={historial} → {prioridad}")
-    pass
+    #pass
 
 
 def menu_condicionales_anidados():

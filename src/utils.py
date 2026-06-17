@@ -368,7 +368,15 @@ def pipeline_nit(nit):
     # 4. Si es_valido es False:
     #    informe = f"NIT {nit} — rechazado: formato inválido"
     # 5. Retorna informe.
-    pass
+    
+    nit_limpio = limpiar_nit(nit)
+    es_valido = validar_nit(nit_limpio)
+    if es_valido:
+        informe = f"NIT {nit_limpio} — apto para procesamiento"
+    else:
+        informe = f"NIT {nit} — rechazado: formato inválido"
+    return informe
+    #pass
 
 
 # ---------------------------------------------------------------------------
@@ -394,7 +402,11 @@ def esta_al_dia(dias_mora):
     # 1. Escribe un if/else:
     #    - si dias_mora == 0: retorna True
     #    - de lo contrario: retorna False
-    pass
+    if dias_mora == 0:
+        return True
+    else:
+        return False
+    #pass
 
 
 def aplicar_descuento(valor, pago_voluntario):
